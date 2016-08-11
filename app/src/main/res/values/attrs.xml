@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--外部属性-->
+    <attr name="titleColor" format="color"/>
+    <attr name="titleSize" format="dimension"/>
+    
+    <declare-styleable name="CustomView">
+        
+        <attr name="titleColor"/>
+        
+    </declare-styleable>
+
+</resources>

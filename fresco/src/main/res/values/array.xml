@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="drawable_array">
+        <item>@mipmap/menu_share</item>
+        <item>@mipmap/menu_save</item>
+        <item>@mipmap/menu_back</item>
+    </array>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 自定义的属性 -->
+    <!-- format的值：string,color,demension,integer,enum,reference,float,boolean,fraction,flag -->
+    <declare-styleable name="Header">
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomProgressBar">
+        <attr name="firstColor" format="color"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="circleWidth" format="dimension"/>
+        <attr name="progressSpeed" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleNumView">
+        <attr name="cnvCircleColor" format="color"/>
+        <attr name="cnvCircleWidth" format="dimension"/>
+        <attr name="cnvTextColor" format="color"/>
+        <attr name="cnvTextSize" format="dimension"/>
+        <attr name="cnvText" format="string"/>
+    </declare-styleable>
+
+</resources>
