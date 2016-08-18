@@ -8,8 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView1;
+    private TextView mTextView2;
+
+    private LinearLayout child1;
+    private LinearLayout child2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        child1 = (LinearLayout) findViewById(R.id.child1);
+        child2 = (LinearLayout) findViewById(R.id.child2);
+
+        mTextView1 = (TextView) child1.findViewById(R.id.tv1);
+        mTextView2 = (TextView) child2.findViewById(R.id.tv1);
+        mTextView1.setText("你好--------------");
+        mTextView2.setText("你好--------222222");
     }
 
     @Override

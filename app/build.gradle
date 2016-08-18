@@ -16,16 +16,16 @@ android {
 
     signingConfigs {
         debug {
-            keyAlias 'com.zhongsou.souyue'
-            keyPassword 'therycom'
-            storeFile file('/Users/eyetech/Documents/zhongsou/souyue-release.keystore')
-            storePassword 'therycom'
+            keyAlias 'yelong'
+            keyPassword '123456'
+            storeFile file('../keystore/yelong.jks')
+            storePassword '123456'
         }
         release {
-            keyAlias 'com.zhongsou.souyue'
-            keyPassword 'therycom'
-            storeFile file('/Users/eyetech/Documents/zhongsou/souyue-release.keystore')
-            storePassword 'therycom'
+            keyAlias 'yelong'
+            keyPassword '123456'
+            storeFile file('../keystore/yelong.jks')
+            storePassword '123456'
         }
     }
 

@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CircleNumView">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="com.yelong.customview:cnvCircleColor">@color/colorAccent</item>
+        <item name="com.yelong.customview:cnvCircleWidth">5dp</item>
+        <item name="com.yelong.customview:cnvText">1</item>
+        <item name="com.yelong.customview:cnvTextColor">@color/colorPrimary</item>
+        <item name="com.yelong.customview:cnvTextSize">30sp</item>
+    </style>
+
 </resources>
