@@ -1,13 +1,16 @@
 package com.zhongsou.simplesproject;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         child1 = (LinearLayout) findViewById(R.id.child1);
         child2 = (LinearLayout) findViewById(R.id.child2);
 
@@ -43,6 +47,35 @@ public class MainActivity extends AppCompatActivity {
         mTextView2 = (TextView) child2.findViewById(R.id.tv1);
         mTextView1.setText("你好--------------");
         mTextView2.setText("你好--------222222");
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        hideStatusBarAndToolBar(hasFocus);
+    }
+
+    /**
+     * 实现沉浸式效果
+     *
+     * @param hasFocus
+     */
+    public void hideStatusBarAndToolBar(boolean hasFocus) {
+        if (hasFocus && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(option);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//Android5.0
+                getWindow().setStatusBarColor(Color.TRANSPARENT);
+                getWindow().setNavigationBarColor(Color.TRANSPARENT);
+            }
+        }
+        ActionBar actionBar = getSupportActionBar();
+        if (null != actionBar) actionBar.hide();
     }
 
     @Override
