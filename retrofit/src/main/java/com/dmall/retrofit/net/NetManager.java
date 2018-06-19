@@ -1,8 +1,8 @@
 package com.dmall.retrofit.net;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
-import retrofit2.CallAdapter;
-import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,20 +14,35 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetManager {
 
-    private static ApiService sService;
-    private static OkHttpClient sOkHttpClient = new OkHttpClient();
-    private static Converter.Factory sGsonFactory = GsonConverterFactory.create();
-    private static CallAdapter.Factory sRxJavaFactory = RxJavaCallAdapterFactory.create();
+    private static final String BASE_URL = "http://localhost:3000";
+    private static final int DEFAULT_TIMEOUT = 5;
 
-    public static ApiService getApiService() {
-        if (sService == null) {
-            synchronized (ApiService.class) {
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://localhost:3000")
-                        .client(sOkHttpClient).addConverterFactory(sGsonFactory)
-                        .addCallAdapterFactory(sRxJavaFactory).build();
-                sService = retrofit.create(ApiService.class);
-            }
+    private Retrofit mRetrofit;
+    private ApiService mApiService;
+
+    private static class NetManagerHolder {
+        private static NetManager instance = new NetManager();
+    }
+
+    private NetManager() {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+
+        mRetrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+                .client(builder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+    }
+
+    public static NetManager getInstance() {
+        return NetManagerHolder.instance;
+    }
+
+    public synchronized ApiService getApiService() {
+        if (mApiService == null) {
+            mApiService = mRetrofit.create(ApiService.class);
         }
-        return sService;
+        return mApiService;
     }
 }

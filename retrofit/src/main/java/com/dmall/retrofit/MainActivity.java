@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NetManager.getApiService().getUsers("yelong").subscribeOn(Schedulers.io())
+        NetManager.getInstance().getApiService().getUsers("yelong").subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<List<User>>() {
             @Override
             public void call(List<User> users) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        NetManager.getApiService().getUser("yelong").subscribeOn(Schedulers.io())
+        NetManager.getInstance().getApiService().getUser("yelong").subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<User>() {
             @Override
             public void call(User user) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void test() {
-        NetManager.getApiService().getUsers().subscribeOn(Schedulers.io())
+        NetManager.getInstance().getApiService().getUsers().subscribeOn(Schedulers.io())
                 .map(new Func1<UserListDTO, List<User>>() {
                     @Override
                     public List<User> call(UserListDTO userListDTO) {
