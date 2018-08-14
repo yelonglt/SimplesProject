@@ -20,14 +20,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile "junit:junit:$rootProject.ext.junitVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofit"
-    compile "io.reactivex:rxjava:$rootProject.rxjava"
-    compile "io.reactivex:rxandroid:$rootProject.rxandroid"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofit"
+    implementation "io.reactivex:rxjava:$rootProject.rxjava"
+    implementation "io.reactivex:rxandroid:$rootProject.rxandroid"
 }
