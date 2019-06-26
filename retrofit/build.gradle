@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion compileSdkVersionValue
 
     defaultConfig {
         applicationId "com.dmall.retrofit"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion minSdkVersionValue
+        targetSdkVersion targetSdkVersionValue
         versionCode 1
         versionName "1.0"
     }
